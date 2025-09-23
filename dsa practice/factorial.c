@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int fact(int a){
-    if (a==0 || a==1)
+    if (a==0)
     {
         return 1;
     }
