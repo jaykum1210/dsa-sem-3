@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(){
-    int a,min;
+    int a,tar,pos;
     printf("Enter number = ");
     scanf("%d",&a);
     int b[a];
@@ -10,20 +10,16 @@ int main(){
     {
         scanf("%d",&b[i]);
     }
-    for (int i = 0; i < a; i++)
+    printf("Enter value = ");
+    scanf("%d",&tar);
+    printf("Enter position = ");
+    scanf("%d",&pos);
+    for (int i = a; i >=pos; i--)
     {
-        min = i;
-        for (int j = i+1; j<a; j++)
-        {
-            if (b[min]>b[j])
-            {
-                min = j;
-            }
-        }
-        int temp = b[i];
-        b[i] = b[min];
-        b[min] = temp;
+        b[i] = b[i-1];
     }
+    b[pos-1] = tar;
+    a++;
     printf("Array = ");
     for (int i = 0; i < a; i++)
     {

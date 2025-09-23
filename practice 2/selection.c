@@ -2,7 +2,7 @@
 
 int main(){
     int a,min;
-    printf("Enter number = ");
+    printf("Enter element = ");
     scanf("%d",&a);
     int b[a];
     printf("Enter %d elements = ",a);
@@ -13,18 +13,17 @@ int main(){
     for (int i = 0; i < a; i++)
     {
         min = i;
-        for (int j = i+1; j<a; j++)
+        for (int j = i+1; j < a; j++)
         {
             if (b[min]>b[j])
             {
                 min = j;
             }
         }
-        int temp = b[i];
-        b[i] = b[min];
-        b[min] = temp;
+        int temp = b[min];
+        b[min] = b[i];
+        b[i] = temp;
     }
-    printf("Array = ");
     for (int i = 0; i < a; i++)
     {
         printf("%d ",b[i]);

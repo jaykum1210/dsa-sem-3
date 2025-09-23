@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(){
-    int a,min;
+    int a,key,j;
     printf("Enter number = ");
     scanf("%d",&a);
     int b[a];
@@ -10,19 +10,16 @@ int main(){
     {
         scanf("%d",&b[i]);
     }
-    for (int i = 0; i < a; i++)
+    for (int i = 1; i < a; i++)
     {
-        min = i;
-        for (int j = i+1; j<a; j++)
+        key = b[i];
+        j = i-1;
+        while (j>=0 && b[j]>key)
         {
-            if (b[min]>b[j])
-            {
-                min = j;
-            }
+            b[j+1] = b[j];
+            j--;
         }
-        int temp = b[i];
-        b[i] = b[min];
-        b[min] = temp;
+        b[j+1] = key;
     }
     printf("Array = ");
     for (int i = 0; i < a; i++)
