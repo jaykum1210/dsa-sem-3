@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node{
+struct node {
     int data;
     struct node* next;
 };
 
-struct node* createnode(int data){
+struct node* createnode(data){
     struct node* newnode = (struct node*)malloc(sizeof(struct node));
-    newnode -> data = data;
-    newnode ->next = NULL;
+    newnode->data = data;
+    newnode->next = NULL;
     return newnode;
 }
 
-void start(struct node** head, int data){
-    struct node* newnode = createnode(data);
+void start(struct node** head,int val){
+    struct node* newnode = createnode(val);
     newnode->next = *head;
     *head = newnode;
 }
@@ -31,69 +31,30 @@ void end(struct node** head, int val){
     {
         temp = temp->next;
     }
-    temp ->next = newnode;
-}
-
-void position(struct node** head,int val, int pos){
-    if (pos==0)
-    {
-        start(head,val);
-        return;
-    }
-    struct node* newnode = createnode(val);
-    struct node* temp = *head;
-    for (int i = 0; i < pos-1 && temp->next!=NULL; i++)
-    {
-        temp = temp->next;
-    }
-    if (temp==NULL)
-    {
-        printf("position out of range\n");
-        return;
-    }
-    newnode->next=temp->next;
     temp->next = newnode;
 }
 
-void after(struct node** head, int val,int data){
+void after(struct node** head, int val, int data){
     struct node* temp = *head;
     while (temp!=NULL && temp->data!=data)
     {
         temp = temp->next;
     }
-    if (temp==NULL)
-    {
-        printf("Value %d not found\n",val);
-        return;
-    }
-    struct node* newnode = createnode(val);
-    newnode->next = temp->next;
-    temp->next = newnode;
-}
-
-void display(struct node* head){
-    struct node* temp = head;
-    printf("Link list : ");
-    while (temp!=NULL)
-    {
-        printf("%d -> ",temp->data);
-        temp = temp->next;
-    }
-    printf("NULL\n");
+     
 }
 
 int main(){
     struct node* head = NULL;
-    int choice=0, data,pos,val;
+    int choice,val,data,pos;
     while (choice!=6)
     {
-        printf("1. Insert at start\n");
+        printf("\n1. Start\n");
         printf("2. End\n");
         printf("3. After\n");
-        printf("4. position\n");
-        printf("5. display\n");
+        printf("4. Position\n");
+        printf("5. Display\n");
         printf("6. Exit\n");
-        printf("Enter choice = ");
+        printf("Choice = ");
         scanf("%d",&choice);
         switch (choice)
         {
@@ -104,7 +65,7 @@ int main(){
             break;
         case 2:
             printf("Enter value = ");
-            scanf("%d",&val);;
+            scanf("%d",&val);
             end(&head,val);
             break;
         case 3:
@@ -119,16 +80,15 @@ int main(){
             scanf("%d",&val);
             printf("Enter position = ");
             scanf("%d",&pos);
-            position(&head,val,pos);
+            position(&head,val,data);
             break;
         case 5:
             display(head);
             break;
         case 6:
-            printf("Exiting.....\n");
+            printf("Exiting....\n");
             break;
         default:
-            printf("Invalid option\n");
             break;
         }
     }
