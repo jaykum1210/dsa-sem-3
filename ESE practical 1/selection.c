@@ -14,7 +14,7 @@ int main(){
         int min = i;
         for (int j = i; j <a; j++)
         {
-            if (b[min]<b[j])
+            if (b[min]>b[j])
             {
                 min = j;
             }
