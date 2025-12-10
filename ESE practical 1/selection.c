@@ -18,10 +18,10 @@ int main(){
             {
                 min = j;
             }
-            int temp = b[min];
-            b[min] = b[j];
-            b[j] = temp;
         }
+        int temp = b[min];
+        b[min] = b[i];
+        b[i] = temp;
     }
     printf("Array = ");
     for (int i = 0; i < a; i++)
