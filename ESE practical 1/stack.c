@@ -13,7 +13,7 @@ int push(int b[], int a, int val, int top){
 
 int pop(int b[], int a, int top){
     if (top==-1)
-    {
+    {   
         printf("Underflow\n");
         return -1;
     }
