@@ -13,7 +13,7 @@ int main(){
     int pos;
     printf("Enter position = ");
     scanf("%d",&pos);
-    for (int i = pos-1; i < a; i++)
+    for (int i = pos-1; i < a-1; i++)
     {
         b[i] = b[i+1];
     }
