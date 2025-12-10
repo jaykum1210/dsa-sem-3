@@ -2,8 +2,8 @@
 
 void merge(int b[], int l, int mid, int r){
     int n1 = mid-l+1;
-    int n2 = r - mid;
-    int left[n1], right[n2];
+    int n2 = r-mid;
+    int left[n1],right[n2];
     for (int i = 0; i < n1; i++)
     {
         left[i] = b[l+i];
@@ -12,7 +12,7 @@ void merge(int b[], int l, int mid, int r){
     {
         right[i] = b[mid+1+i];
     }
-    int i = 0,j=0,k=l;
+    int i = 0, j = 0, k = l;
     while (i<n1 && j<n2)
     {
         if (left[i]<=right[j])
@@ -57,7 +57,7 @@ int main(){
     {
         scanf("%d",&b[i]);
     }
-    int l = 0, r= a-1;
+    int l = 0, r = a-1;
     mergesort(b,l,r);
     printf("Array = ");
     for (int i = 0; i < a; i++)
